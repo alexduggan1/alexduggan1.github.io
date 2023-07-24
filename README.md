@@ -6,4 +6,6 @@
 
 [Terrible Flight Sim (2022)](https://alexduggan1.github.io/TerribleFlightSimulator)
 
-[Ferris Freedom (2020)](https://alexduggan1.github.io/FerrisFreedom)
+[Ferris Freedom (2020) (JAM)](https://alexduggan1.github.io/FerrisFreedom)
+
+[Island Vacation (2023) (JAM)](https://alexduggan1.github.io/IslandVacation)
