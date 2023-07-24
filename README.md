@@ -11,3 +11,5 @@
 [Island Vacation (2023) (JAM)](https://alexduggan1.github.io/IslandVacation)
 
 [2D Testing Universe (2020)](https://alexduggan1.github.io/2DTestingUniverse)
+
+[Multiplayer Boss Fight (2021)](https://alexduggan1.github.io/MultiplayerBossFight)
