@@ -11,10 +11,10 @@ permissions:
   contents: write
 
 env:
-  GODOT_MAJOR_MINOR_VERSION: "4.0" # must be a string, not a number
+  GODOT_MAJOR_MINOR_VERSION: "4.11" # must be a string, not a number
   GODOT_PATCH_VERSION: beta12
 
-  PROJECT_FOLDER: "/LearningGodotWeb1" # the path to the godot project (must contain `project.godot` file) relative to the github root path
+  PROJECT_FOLDER: "alexduggan1.github.io/LearningGodotW" # the path to the godot project (must contain `project.godot` file) relative to the github root path
 
   EXPORT_TEMPLATE: release # export with release || debug
   EXPORT_PRESET_NAME: Web # name of the preset
