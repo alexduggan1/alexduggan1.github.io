@@ -14,4 +14,4 @@
 
 [Cannon Tower (2019)](https://alexduggan1.github.io/CannonTower)
 
-[Learning Godot (2023)](https://alexduggan1.github.io/LearningGodot)
+[Learning Godot (2023)](https://alexduggan1.github.io/LearningGodot/Build/Web)
