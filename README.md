@@ -16,4 +16,4 @@
 
 [Learning Godot (2023)](https://alexduggan1.github.io/LearningGodot/build/web)
 
-[Volumes Of Revolution (2024)](https://alexduggan1.github.io/SeniorProject/VolumesOfRevolution/build/web)
+[Senior Project (2024)](https://alexduggan1.github.io/SeniorProject/)
