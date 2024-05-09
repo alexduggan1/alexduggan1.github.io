@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dftrurf78o3fb"]
+
+[ext_resource type="Material" uid="uid://dq2a8yak44nv8" path="res://cylinderMat.tres" id="1_ep2tu"]
+[ext_resource type="Script" path="res://shell.gd" id="2_d4dpg"]
+
+[node name="Outside" type="CSGCylinder3D"]
+operation = 2
+radius = 1.0
+height = 1.0
+sides = 64
+material = ExtResource("1_ep2tu")
+script = ExtResource("2_d4dpg")
+
+[node name="Inside" type="CSGCylinder3D" parent="."]
+operation = 2
+height = 1.05
+sides = 64

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4h7skt41the5"]
+
+[resource]
+render_priority = 5
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.74902)
+disable_receive_shadows = true

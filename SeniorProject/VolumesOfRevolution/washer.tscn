@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://06gamub0udky"]
+
+[ext_resource type="Material" uid="uid://dq2a8yak44nv8" path="res://cylinderMat.tres" id="1_8hv5d"]
+[ext_resource type="Script" path="res://washer.gd" id="2_4opmi"]
+
+[node name="Outside" type="CSGCylinder3D"]
+operation = 2
+radius = 1.0
+height = 1.0
+sides = 64
+material = ExtResource("1_8hv5d")
+script = ExtResource("2_4opmi")
+
+[node name="Inside" type="CSGCylinder3D" parent="."]
+operation = 2
+height = 1.05
+sides = 64

@@ -1,0 +1,283 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmyplodufy5ft"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_4h2fn"]
+[ext_resource type="PackedScene" uid="uid://06gamub0udky" path="res://washer.tscn" id="2_2l4x4"]
+[ext_resource type="PackedScene" uid="uid://b5wc55q113247" path="res://disc.tscn" id="3_oo2hc"]
+[ext_resource type="Material" uid="uid://bt4njiw4dd1r8" path="res://axisMats/xAxisMat.tres" id="4_pwqpg"]
+[ext_resource type="Material" uid="uid://dq2a8yak44nv8" path="res://cylinderMat.tres" id="4_uxcld"]
+[ext_resource type="Material" uid="uid://b8pegecommea6" path="res://axisMats/yAxisMat.tres" id="5_n13cd"]
+[ext_resource type="Material" uid="uid://cww0c71yog58x" path="res://axisMats/zAxisMat.tres" id="6_eotd8"]
+[ext_resource type="Material" uid="uid://d4h7skt41the5" path="res://axisMats/midMat.tres" id="7_f1jqc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3r380"]
+
+[node name="main" type="Node3D" node_paths=PackedStringArray("functionText", "functionText2", "dropdown", "axisDropdown", "generateButton", "resolutionSlider", "resolutionInput", "lowerBoundInput", "upperBoundInput", "titleInput", "resultText", "camera", "objHolder", "historyList", "exportSTLButton", "exportSTLButton2", "dummy")]
+script = ExtResource("1_4h2fn")
+functionText = NodePath("LineEdit1")
+functionText2 = NodePath("LineEdit2")
+dropdown = NodePath("MethodDropdown")
+axisDropdown = NodePath("AxisDropdown")
+generateButton = NodePath("GenerateButton")
+resolutionSlider = NodePath("ResolutionSlider")
+resolutionInput = NodePath("ResolutionInput")
+lowerBoundInput = NodePath("LowerBound")
+upperBoundInput = NodePath("UpperBound")
+titleInput = NodePath("Title")
+resultText = NodePath("ResultText")
+camera = NodePath("Camera3D")
+washerProto = ExtResource("2_2l4x4")
+discProto = ExtResource("3_oo2hc")
+objHolder = NodePath("objHolder")
+historyList = NodePath("HistoryList")
+exportSTLButton = NodePath("ExportSTLButton")
+exportSTLButton2 = NodePath("ExportSTLButton2")
+dummy = NodePath("dummy")
+cylinderMat = ExtResource("4_uxcld")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.672)
+far = 12000.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.898794, -0.438371, 0, 0.438371, 0.898794, 0, 0, 0)
+light_energy = 2.47
+omni_range = 100.0
+
+[node name="LineEdit1" type="LineEdit" parent="."]
+offset_left = 87.0
+offset_top = 97.0
+offset_right = 412.0
+offset_bottom = 128.0
+placeholder_text = "write f(x) here"
+
+[node name="Label" type="Label" parent="LineEdit1"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "y ="
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 500.0
+offset_top = 97.0
+offset_right = 825.0
+offset_bottom = 128.0
+placeholder_text = "write g(x) here"
+
+[node name="Label" type="Label" parent="LineEdit2"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "y ="
+
+[node name="MethodDropdown" type="OptionButton" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 232.0
+offset_bottom = 47.0
+item_count = 4
+selected = 0
+popup/item_0/text = "choose a method"
+popup/item_0/id = 0
+popup/item_1/text = "disc"
+popup/item_1/id = 1
+popup/item_2/text = "washer"
+popup/item_2/id = 2
+popup/item_3/text = "shell"
+popup/item_3/id = 3
+
+[node name="AxisDropdown" type="OptionButton" parent="."]
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 232.0
+offset_bottom = 95.0
+item_count = 3
+selected = 0
+popup/item_0/text = "select axis of revolution"
+popup/item_0/id = 0
+popup/item_1/text = "about x axis"
+popup/item_1/id = 1
+popup/item_2/text = "about y axis"
+popup/item_2/id = 2
+
+[node name="GenerateButton" type="Button" parent="."]
+offset_left = 234.0
+offset_top = 2.0
+offset_right = 327.0
+offset_bottom = 47.0
+text = "generate"
+
+[node name="ResolutionSlider" type="HSlider" parent="."]
+offset_left = 87.0
+offset_top = 131.0
+offset_right = 316.0
+offset_bottom = 147.0
+min_value = 1.0
+max_value = 25.0
+value = 5.0
+rounded = true
+
+[node name="Label" type="Label" parent="ResolutionSlider"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -5.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "resolution"
+
+[node name="ResolutionInput" type="SpinBox" parent="."]
+offset_left = 330.0
+offset_top = 130.0
+offset_right = 413.063
+offset_bottom = 161.0
+scale = Vector2(0.6, 0.6)
+min_value = 1.0
+max_value = 25.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="LowerBound" type="SpinBox" parent="."]
+offset_left = 45.0
+offset_top = 152.0
+offset_right = 128.063
+offset_bottom = 183.0
+min_value = -100.0
+alignment = 1
+
+[node name="Label" type="Label" parent="LowerBound"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "from"
+
+[node name="UpperBound" type="SpinBox" parent="."]
+offset_left = 157.0
+offset_top = 152.0
+offset_right = 240.063
+offset_bottom = 183.0
+min_value = -100.0
+value = 5.0
+alignment = 1
+
+[node name="Label" type="Label" parent="UpperBound"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "to"
+
+[node name="Title" type="LineEdit" parent="."]
+offset_left = 329.0
+offset_top = 2.0
+offset_right = 654.0
+offset_bottom = 47.0
+placeholder_text = "title"
+
+[node name="objHolder" type="Node3D" parent="."]
+
+[node name="axesHolder" type="Node3D" parent="."]
+
+[node name="xAxis" type="MeshInstance3D" parent="axesHolder"]
+transform = Transform3D(40000, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_3r380")
+surface_material_override/0 = ExtResource("4_pwqpg")
+
+[node name="yAxis" type="MeshInstance3D" parent="axesHolder"]
+transform = Transform3D(0.03, 0, 0, 0, 40000, 0, 0, 0, 0.03, 0, 0, 0)
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_3r380")
+surface_material_override/0 = ExtResource("5_n13cd")
+
+[node name="zAxis" type="MeshInstance3D" parent="axesHolder"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 40000, 0, 0, 0)
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_3r380")
+surface_material_override/0 = ExtResource("6_eotd8")
+
+[node name="mid" type="MeshInstance3D" parent="axesHolder"]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_3r380")
+skeleton = NodePath("../zAxis")
+surface_material_override/0 = ExtResource("7_f1jqc")
+
+[node name="HistoryList" type="ItemList" parent="."]
+offset_left = 900.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 122.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1091.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 31.0
+text = "history"
+
+[node name="ClearHistoryButton" type="Button" parent="."]
+offset_left = 1092.0
+offset_top = 125.0
+offset_right = 1146.0
+offset_bottom = 156.0
+text = "clear"
+
+[node name="ResultText" type="LineEdit" parent="."]
+offset_left = 64.0
+offset_top = 187.0
+offset_right = 294.0
+offset_bottom = 232.0
+editable = false
+
+[node name="Label" type="Label" parent="ResultText"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 9.0
+offset_right = -3.0
+offset_bottom = 35.0
+text = "volume"
+
+[node name="ExportSTLButton" type="Button" parent="."]
+offset_left = 900.0
+offset_top = 125.0
+offset_right = 993.0
+offset_bottom = 170.0
+text = "export stl"
+
+[node name="ExportSTLButton2" type="Button" parent="."]
+offset_left = 1010.0
+offset_top = 180.0
+offset_right = 1148.0
+offset_bottom = 225.0
+text = "export advanced"
+
+[node name="dummy" type="Node3D" parent="."]
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+offset_left = 47.0
+offset_top = 270.0
+offset_right = 79.0
+offset_bottom = 302.0
+color = Color(0, 0.537255, 0.545098, 1)
+
+[node name="Label" type="Label" parent="ColorPickerButton"]
+offset_left = -44.0
+offset_top = 4.0
+offset_right = -1.0
+offset_bottom = 30.0
+text = "color"
+
+[connection signal="button_up" from="GenerateButton" to="." method="_on_generate_button_button_up"]
+[connection signal="value_changed" from="ResolutionInput" to="." method="_on_resolution_input_value_changed"]
+[connection signal="item_activated" from="HistoryList" to="." method="_on_history_list_item_activated"]
+[connection signal="button_up" from="ClearHistoryButton" to="." method="_on_clear_history_button_button_up"]
+[connection signal="button_up" from="ExportSTLButton" to="." method="_on_export_stl_button_button_up"]
+[connection signal="button_up" from="ExportSTLButton2" to="." method="_on_export_stl_button_2_button_up"]
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
