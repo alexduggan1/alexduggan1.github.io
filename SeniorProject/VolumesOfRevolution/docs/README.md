@@ -67,11 +67,9 @@ sin(x) -> sin(x)
 
 cos(x) -> cos(x)
 
-$$\sqrt{x}$$
--> sqrt(x)
+sqrt(x) -> sqrt(x)
 
-$$\pi$$
--> PI
+pi -> PI
 
 
 When writing the functions, remember to use parentheses to make the order of operations correct.
