@@ -5,6 +5,8 @@
 
 # How to use Volumes of Revolution
 
+This program can render solids of revolution, as well as export them so that they can be 3D printed.
+
 ## Rendering Solids of Revolution
 
 ### Methods
@@ -40,6 +42,7 @@ You cannot write any variables that are not the variable of integration.
 
 
 **How to write the functions**
+
 The function must be written using code notation. Here are some examples, assuming that the variable of integration is x:
 
 | Math Notation | Code Notation |
@@ -47,15 +50,16 @@ The function must be written using code notation. Here are some examples, assumi
 | x+5           | x+5           |
 | x-5           | x-5           |
 | 2x            | 2*x           |
-| $^x/_2$       | x/2           |
-| x^2^          | pow(x, 2)     |
+| x/2           | x/2           |
+| $$x^2$$       | pow(x, 2)     |
 | ln(x)         | log(x)        |
 | e^x^          | exp(x)        |
 | \|x\|         | abs(x)        |
 | sin(x)        | sin(x)        |
 | cos(x)        | cos(x)        |
-| $\sqrt{x}$    | sqrt(x)       |
-| $\pi$         | PI            |
+| $$\sqrt{x}$$  | sqrt(x)       |
+| $$\pi$$       | PI            |
+
 
 When writing the functions, remember to use parentheses to make the order of operations correct.
 
@@ -94,7 +98,7 @@ You can clear the history queue using the clear button at the bottom right of th
 
 ### Export STL
 
-Clicking the Export STL button will create a .stl file of the currently selected solid in the history queue. The name of the file will be the title of the solid.
+Clicking the Export STL button will create a `.stl` file of the currently selected solid in the history queue. The name of the file will be the title of the solid.
 
 This button works best for exporting solids generated with the disc method, and it usually works with solids generated with the washer method, too.
 It is *not* recommended to use this button to export solids generated with the shell method, especially if they have any amount of concavity.
@@ -102,45 +106,45 @@ It is *not* recommended to use this button to export solids generated with the s
 
 **Printing files exported with the Export STL button**
 
-Begin by sending the .stl file onto the computer with the 3D printing software.
+Begin by sending the `.stl` file onto the computer with the 3D printing software.
 
-Once the .stl file is on the computer with the 3D printing software, import it into the 3D printing software.
+Once the `.stl` file is on the computer with the 3D printing software, import it into the 3D printing software.
 
-If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the .stl file before printing it.
+If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the `.stl` file before printing it.
 
-Since the .stl files are generated sideways, you will need to rotate them properly before printing. They are also generated with millimeter units, so resizing may be necessary.
+Since the `.stl` files are generated sideways, you will need to rotate them properly before printing. They are also generated with millimeter units, so resizing may be necessary.
 
-If slicing your .stl file fills in a hole that it shouldn't, use the Export Advanced button and follow those instructions instead. This is most likely due to your solid having concavity.
+If slicing your `.stl` file fills in a hole that it shouldn't, use the Export Advanced button and follow those instructions instead. This is most likely due to your solid having concavity.
 
 Press slice and begin the print.
 
 
 ### Export Advanced
 
-Clicking the Export Advanced button will create a .zip archive of the currently selected solid in the history queue. The name of the archive will be the title of the solid. Within the archive, there will be a .stl file for each of the individual cylinders used to generate the solid.
+Clicking the Export Advanced button will create a `.zip` archive of the currently selected solid in the history queue. The name of the archive will be the title of the solid. Within the archive, there will be a `.stl` file for each of the individual cylinders used to generate the solid.
 
 This button is designed to export solids generated with the shell method, especially if they have any amount of concavity. It is most likely not necessary to use the button to export solids generated with the shell or washer method, but it would probably work.
 
 
 **Printing files exported with the Export Advanced button**
 
-Begin by sending the .zip archive to the computer with the 3D printing software.
+Begin by sending the `.zip` archive to the computer with the 3D printing software.
 
-Once the .zip file is on the computer with the 3D printing software, extract the contents using 7zip. For some reason, the regular file explorer refuses to interact with these archives properly.
+Once the `.zip` archive is on the computer with the 3D printing software, extract the contents using 7zip. For some reason, the regular file explorer refuses to interact with these archives properly.
 
 Open blender. Click `file > import > STL (.stl)`. Select all of the files that were extracted from the .zip archive and press Import STL.
 
-The files will be imported sideways. To fix this, press r, then x, and rotate all of the files at once until they are oriented correctly. If the files get deselected, you can reselected all of them by pressing a. **Note:** blender must be in Object Mode for this to work. If you aren't in Object Mode, try pressing tab (it swaps between Object Mode and Edit Mode).
+The files will be imported sideways. To fix this, press `r`, then `x`, and rotate all of the files at once until they are oriented correctly. If the files get deselected, you can reselected all of them by pressing `a`. **Note:** blender must be in Object Mode for this to work. If you aren't in Object Mode, try pressing tab (it swaps between Object Mode and Edit Mode).
 
-Press n to open the menu on the side of main viewer, and click on the panel labeled 3D-Print. Open the export section.
+Press `n` to open the menu on the side of main viewer, and click on the panel labeled 3D-Print. Open the export section.
 
-Select the destination location for your new .stl file, make sure the format is STL, then click Export. You can now close blender.
+Select the destination location for your new `.stl` file, make sure the format is STL, then click Export. You can now close blender.
 
 
-Import your new .stl file into the 3D printing software.
+Import your new `.stl` file into the 3D printing software.
 
-If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the .stl file before printing it.
+If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the `.stl` file before printing it.
 
-Since the .stl files are generated with millimeter units, resizing may be necessary.
+Since the `.stl` files are generated with millimeter units, resizing may be necessary.
 
 Press slice and begin the print.
