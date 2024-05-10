@@ -45,20 +45,31 @@ You cannot write any variables that are not the variable of integration.
 
 The function must be written using code notation. Here are some examples, assuming that the variable of integration is x:
 
-| Math Notation | Code Notation |
-| :-----------: | :-----------: |
-| x+5           | x+5           |
-| x-5           | x-5           |
-| 2x            | 2*x           |
-| x/2           | x/2           |
-| ${\displaystyle}x^2$   | pow(x, 2)     |
-| ln(x)         | log(x)        |
-| ${\displaystyle}e^x$       | exp(x)        |
-| \|x\|         | abs(x)        |
-| sin(x)        | sin(x)        |
-| cos(x)        | cos(x)        |
-| ${\displaystyle}\sqrt{x}$  | sqrt(x)       |
-| ${\displaystyle}\pi$       | PI            |
+Math Notation $\to$ Code Notation
+
+x+5 $\to$ x+5
+
+x-5 $\to$ x-5
+
+2x $\to$ 2*x
+
+x/2 $\to$ x/2
+
+${\displaystyle}x^2$ $\to$ pow(x, 2)
+
+ln(x) $\to$ log(x)
+
+${\displaystyle}e^x$ $\to$ exp(x)
+
+\|x\| $\to$ abs(x)
+
+sin(x) $\to$ sin(x)
+
+cos(x) $\to$ cos(x)
+
+${\displaystyle}\sqrt{x}$ $\to$ sqrt(x)
+
+${\displaystyle}\pi$ $\to$ PI
 
 
 When writing the functions, remember to use parentheses to make the order of operations correct.
