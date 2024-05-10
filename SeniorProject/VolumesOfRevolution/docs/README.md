@@ -55,11 +55,11 @@ x-5 -> x-5
 
 x/2 -> x/2
 
-x^2^ -> pow(x, 2)
+x^2 -> pow(x, 2)
 
 ln(x) -> log(x)
 
-e^x^ -> exp(x)
+e^x -> exp(x)
 
 \|x\| -> abs(x)
 
