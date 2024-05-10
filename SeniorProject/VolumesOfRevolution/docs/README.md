@@ -51,14 +51,14 @@ The function must be written using code notation. Here are some examples, assumi
 | x-5           | x-5           |
 | 2x            | 2*x           |
 | x/2           | x/2           |
-| $$x^2$$       | pow(x, 2)     |
+| ${\displaystyle}x^2$   | pow(x, 2)     |
 | ln(x)         | log(x)        |
-| $$e^x$$       | exp(x)        |
+| ${\displaystyle}e^x$       | exp(x)        |
 | \|x\|         | abs(x)        |
 | sin(x)        | sin(x)        |
 | cos(x)        | cos(x)        |
-| $$\sqrt{x}$$  | sqrt(x)       |
-| $$\pi$$       | PI            |
+| ${\displaystyle}\sqrt{x}$  | sqrt(x)       |
+| ${\displaystyle}\pi$       | PI            |
 
 
 When writing the functions, remember to use parentheses to make the order of operations correct.
