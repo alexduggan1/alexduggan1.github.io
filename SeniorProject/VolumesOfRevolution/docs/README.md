@@ -53,7 +53,7 @@ The function must be written using code notation. Here are some examples, assumi
 | x/2           | x/2           |
 | $$x^2$$       | pow(x, 2)     |
 | ln(x)         | log(x)        |
-| e^x^          | exp(x)        |
+| $$e^x$$       | exp(x)        |
 | \|x\|         | abs(x)        |
 | sin(x)        | sin(x)        |
 | cos(x)        | cos(x)        |
