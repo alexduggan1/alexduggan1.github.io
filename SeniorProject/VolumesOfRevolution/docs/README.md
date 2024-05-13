@@ -159,3 +159,11 @@ If there is a warning symbol next to the name of the print (this will almost cer
 Since the `.stl` files are generated with millimeter units, resizing may be necessary.
 
 Press slice and begin the print.
+
+
+
+# Known Limitations
+
+This project can't be run on macOS, due to incompatibility between Godot 4 and macOS
+
+You can't set the bounds to non-whole numbers. This will likely be fixed soon.
