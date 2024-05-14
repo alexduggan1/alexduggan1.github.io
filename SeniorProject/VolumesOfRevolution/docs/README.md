@@ -92,6 +92,18 @@ The title bar is the name of the solid of revolution.
 If it is not left empty, the solid of revolution is added to the history queue on the right.
 
 
+### View Controls
+
+Use `wasd` to rotate the camera around the generated solid.
+
+Use `c` to pull the camera further away and `f` to push it closer.
+
+Use the arrow keys to move the camera up, down, left, or right. This also moves the point the camera rotates around, so I don't necessarily recommend it.
+
+Press `r` to reset the camera to its default settings.
+
+The program tries its best to show the entire solid in frame when you press generate, but it doesn't always succeed.
+
 
 ## Exporting and Printing
 
