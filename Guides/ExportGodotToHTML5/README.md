@@ -28,5 +28,6 @@
 13. You should be done now. Go to where your project is hosted and try it out.
 
 
-`coi-serviceworker.js` can be found at https://github.com/gzuidhof/coi-serviceworker/blob/master/coi-serviceworker.js
-`enable-threads.js` can be found at https://github.com/josephrocca/clip-image-sorter/blob/main/enable-threads.js
+`coi-serviceworker.js` can be found at [https://github.com/gzuidhof/coi-serviceworker/blob/master/coi-serviceworker.js](https://github.com/gzuidhof/coi-serviceworker/blob/master/coi-serviceworker.js)
+
+`enable-threads.js` can be found at [https://github.com/josephrocca/clip-image-sorter/blob/main/enable-threads.js](https://github.com/josephrocca/clip-image-sorter/blob/main/enable-threads.js)
