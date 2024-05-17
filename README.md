@@ -17,3 +17,5 @@
 [Learning Godot (2023)](https://alexduggan1.github.io/LearningGodot/build/web)
 
 [Senior Project (2024)](https://alexduggan1.github.io/SeniorProject/)
+
+[Guides (2024)](https://alexduggan1.github.io/Guides/)
