@@ -133,6 +133,18 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "EXPORT"
 
+[node name="RemoveButton" type="Button" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -36.0
+offset_right = 209.0
+offset_bottom = -5.0
+grow_vertical = 0
+text = "REMOVE"
+
 [node name="MiddleZone" type="ColorRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
@@ -164,3 +176,4 @@ script = ExtResource("3_hh2it")
 [connection signal="pressed" from="Background/BottomZone/RaceButton" to="." method="_on_race_button_pressed"]
 [connection signal="pressed" from="Background/BottomZone/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="Background/BottomZone/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="Background/BottomZone/RemoveButton" to="." method="_on_remove_button_pressed"]

@@ -143,6 +143,18 @@ offset_bottom = -80.0
 grow_vertical = 0
 script = ExtResource("3_nlblx")
 
+[node name="AddWallButton" type="Button" parent="MainPart"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = -52.0
+offset_right = 345.0
+offset_bottom = -21.0
+grow_vertical = 0
+text = "Add Wall"
+
 [node name="RightPart" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -155,20 +167,12 @@ offset_top = -600.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="AddWallButton" type="Button" parent="RightPart"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -42.0
-offset_bottom = -11.0
-grow_horizontal = 2
-text = "Add Wall"
-
 [node name="WallsTitle" type="Label" parent="RightPart"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 29.0
+offset_top = -1.0
+offset_bottom = 28.0
 grow_horizontal = 2
 text = "WALLS"
 label_settings = SubResource("LabelSettings_s3avc")
@@ -206,4 +210,4 @@ Track does not have any starting points."
 [connection signal="confirmed" from="TopPart/SaveButton/FileDialog" to="." method="_on_file_dialog_confirmed"]
 [connection signal="pressed" from="TopPart/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="confirmed" from="TopPart/CloseButton/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
-[connection signal="pressed" from="RightPart/AddWallButton" to="." method="_on_add_wall_button_pressed"]
+[connection signal="pressed" from="MainPart/AddWallButton" to="." method="_on_add_wall_button_pressed"]

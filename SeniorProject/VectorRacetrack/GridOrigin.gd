@@ -36,7 +36,7 @@ func _draw():
 	#maxWidth = get_parent_control().size.x - 120
 	#maxHeight = get_parent_control().size.y - 120
 	
-	var maxPixelsPerDot = min(maxWidth / trackInfo.trackWidth, maxHeight / trackInfo.trackHeight)
+	var maxPixelsPerDot: float = float(min(float(maxWidth) / float(trackInfo.trackWidth), float(maxHeight) / float(trackInfo.trackHeight)))
 	#print(maxPixelsPerDot)
 	
 	

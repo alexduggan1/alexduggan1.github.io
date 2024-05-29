@@ -215,41 +215,6 @@ func check_valid(pos):
 			
 			return all_around
 			
-			"""
-			# get line direction
-			var line_dir = Vector2(lines_on[0][1] - lines_on[0][0]).normalized()
-			print_debug(line_dir)
-			var line_normal = Vector2(line_dir.y, -line_dir.x).normalized()
-			print_debug(line_normal)
-			var point1 = pos + line_normal * 0.3
-			var point2 = pos - line_normal * 0.3
-			
-			var type1 = "unraceable"
-			for w in sortedWalls:
-				if(Geometry2D.is_point_in_polygon(point1, w.points)):
-					if(w.raceable): type1 = "raceable"
-					if(w.endzone): type1 = "endzone"
-			var type2 = "unraceable"
-			for w in sortedWalls:
-				if(Geometry2D.is_point_in_polygon(point2, w.points)):
-					if(w.raceable): type2 = "raceable"
-					if(w.endzone): type2 = "endzone"
-			
-			print(type1)
-			print(type2)
-			
-			# if one of them is unraceable, then this seg can't be stepped on
-			if(type1 == "unraceable" or type2 == "unraceable"):
-				# if either side is unraceable
-				result = "unraceable"
-			elif(type1 == "raceable" and type2 == "raceable"):
-				# if both sides are raceable
-				result = "raceable"
-			elif((type1 == "raceable" and type2 == "endzone") or (type1 == "endzone" and type2 == "raceable")):
-				# if one side is raceable and the other side is endzone
-				result = "raceable"
-			"""
-			
 			
 		if(len(lines_on) == 2):
 			print_debug("corner")
