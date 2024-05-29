@@ -8,18 +8,20 @@ class Player:
 	var momentum: Vector2
 	var points: Array[Vector2]
 	var done: int
+	var car: int
 	
-	func _init(_playerName: String, _trailColor: Color):
+	func _init(_playerName: String, _trailColor: Color, _car: int):
 		playerName = _playerName
 		trailColor = _trailColor
+		car = _car
 
 var players: Array[Player]
 
+@export var carList: Array[CompressedTexture2D]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	players = [Player.new("P1", Color.BLUE), Player.new("P2", Color.RED)]
-	
-	
+	players = [Player.new("P1", Color.BLUE, 0), Player.new("P2", Color.RED, 0)]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

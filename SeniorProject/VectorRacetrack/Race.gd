@@ -36,7 +36,8 @@ func _process(delta):
 		$Background/MainPart/GridOrigin.trackInfo = trackInfo
 		$Background/MainPart/GridOrigin.mode = "race"
 		
-		var maxPixelsPerDot = min($Background/MainPart/GridOrigin.maxWidth / trackInfo.trackWidth, $Background/MainPart/GridOrigin.maxHeight / trackInfo.trackHeight)
+		var maxPixelsPerDot: float = float(min(float($Background/MainPart/GridOrigin.maxWidth) / float(trackInfo.trackWidth), float($Background/MainPart/GridOrigin.maxHeight) / float(trackInfo.trackHeight)))
+		
 		var flipY = Vector2(1,-1)
 		# render existing walls
 		var sortedWalls: Array[MainMenu.TrackInfo.Wall] = trackInfo.walls.duplicate()
@@ -109,7 +110,8 @@ func _process(delta):
 		$Background/MainPart/GridOrigin.trackInfo = trackInfo
 		$Background/MainPart/GridOrigin.mode = "race"
 		
-		var maxPixelsPerDot = min($Background/MainPart/GridOrigin.maxWidth / trackInfo.trackWidth, $Background/MainPart/GridOrigin.maxHeight / trackInfo.trackHeight)
+		var maxPixelsPerDot: float = float(min(float($Background/MainPart/GridOrigin.maxWidth) / float(trackInfo.trackWidth), float($Background/MainPart/GridOrigin.maxHeight) / float(trackInfo.trackHeight)))
+		
 		var flipY = Vector2(1,-1)
 		# render existing walls
 		var sortedWalls: Array[MainMenu.TrackInfo.Wall] = trackInfo.walls.duplicate()
@@ -169,83 +171,83 @@ func check_valid(pos):
 			wallsInside.append(wall)
 	
 	
-	
-	var wally = wallsInside[len(wallsInside)-1]
-	var on_a_line = false
-	var lines_on: Array[PackedVector2Array]
-	for i in range(len(wally.points)):
-		var p1 = wally.points[i]
-		var p2
-		if(i + 1 == len(wally.points)):
-			p2 = wally.points[0]
-		else:
-			p2 = wally.points[i + 1]
+	if(len(wallsInside) > 0):
+		var wally = wallsInside[len(wallsInside)-1]
+		var on_a_line = false
+		var lines_on: Array[PackedVector2Array]
+		for i in range(len(wally.points)):
+			var p1 = wally.points[i]
+			var p2
+			if(i + 1 == len(wally.points)):
+				p2 = wally.points[0]
+			else:
+				p2 = wally.points[i + 1]
+			
+			print_debug(Geometry2D.get_closest_point_to_segment(pos, p1, p2))
+			if(Geometry2D.get_closest_point_to_segment(pos, p1, p2) == pos):
+				print_debug("on line")
+				on_a_line = true
+				
+				lines_on.append(PackedVector2Array([p1, p2]))
+				
 		
-		print_debug(Geometry2D.get_closest_point_to_segment(pos, p1, p2))
-		if(Geometry2D.get_closest_point_to_segment(pos, p1, p2) == pos):
-			print_debug("on line")
-			on_a_line = true
-			
-			lines_on.append(PackedVector2Array([p1, p2]))
-			
-	
-	if(on_a_line):
-		print_debug(len(lines_on))
-		if(len(lines_on) == 1):
-			print_debug("line")
-			
-			# check all the way around
-			var currentPoint = Vector2(0, 0.3)
-			
-			var all_around = "raceable"
-			
-			for i in range(360):
-				currentPoint = currentPoint.rotated(deg_to_rad(1))
-				var res = "unraceable"
-				for w in sortedWalls:
-					if(Geometry2D.is_point_in_polygon(pos + currentPoint, w.points)):
-						#print(w.raceable)
-						if(w.raceable):
-							res = "raceable"
-						else:
-							res = "unraceable"
-				#print(res)
-				if(res == "unraceable"):
-					all_around = "unraceable"
-			
-			return all_around
-			
-			
-		if(len(lines_on) == 2):
-			print_debug("corner")
-			
-			# check all the way around
-			var currentPoint = Vector2(0, 0.3)
-			
-			var all_around = "raceable"
-			
-			for i in range(360):
-				currentPoint = currentPoint.rotated(deg_to_rad(1))
-				var res = "unraceable"
-				for w in sortedWalls:
-					if(Geometry2D.is_point_in_polygon(pos + currentPoint, w.points)):
-						#print(w.raceable)
-						if(w.raceable):
-							res = "raceable"
-						else:
-							res = "unraceable"
-				#print(res)
-				if(res == "unraceable"):
-					all_around = "unraceable"
-			
-			return all_around
-	
-	
-	if(! on_a_line):
-		if(wally.raceable):
-			result = "raceable"
-			if(wally.endzone):
-				result = "endzone"
+		if(on_a_line):
+			print_debug(len(lines_on))
+			if(len(lines_on) == 1):
+				print_debug("line")
+				
+				# check all the way around
+				var currentPoint = Vector2(0, 0.3)
+				
+				var all_around = "raceable"
+				
+				for i in range(360):
+					currentPoint = currentPoint.rotated(deg_to_rad(1))
+					var res = "unraceable"
+					for w in sortedWalls:
+						if(Geometry2D.is_point_in_polygon(pos + currentPoint, w.points)):
+							#print(w.raceable)
+							if(w.raceable):
+								res = "raceable"
+							else:
+								res = "unraceable"
+					#print(res)
+					if(res == "unraceable"):
+						all_around = "unraceable"
+				
+				return all_around
+				
+				
+			if(len(lines_on) == 2):
+				print_debug("corner")
+				
+				# check all the way around
+				var currentPoint = Vector2(0, 0.3)
+				
+				var all_around = "raceable"
+				
+				for i in range(360):
+					currentPoint = currentPoint.rotated(deg_to_rad(1))
+					var res = "unraceable"
+					for w in sortedWalls:
+						if(Geometry2D.is_point_in_polygon(pos + currentPoint, w.points)):
+							#print(w.raceable)
+							if(w.raceable):
+								res = "raceable"
+							else:
+								res = "unraceable"
+					#print(res)
+					if(res == "unraceable"):
+						all_around = "unraceable"
+				
+				return all_around
+		
+		
+		if(! on_a_line):
+			if(wally.raceable):
+				result = "raceable"
+				if(wally.endzone):
+					result = "endzone"
 	
 	return(result)
 
@@ -255,6 +257,7 @@ func setup(_rootNode, _raceMenu, _trackInfo):
 	trackInfo = _trackInfo
 	
 	$Background/MainPart/GridOrigin.trackInfo = trackInfo
+	$Background/MainPart/GridOrigin.rootNode = rootNode
 	
 	racing = true
 	

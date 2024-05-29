@@ -300,6 +300,8 @@ func _on_file_dialog_confirmed():
 
 
 func _on_width_input_value_changed(value):
+	placingPoints.clear()
+	placingWall = false
 	if(value < trackInfo.trackWidth):
 		# bad things might happen
 		var okay = true
@@ -320,6 +322,8 @@ func _on_width_input_value_changed(value):
 	
 
 func _on_height_input_value_changed(value):
+	placingPoints.clear()
+	placingWall = false
 	if(value < trackInfo.trackHeight):
 		# bad things might happen
 		var okay = true

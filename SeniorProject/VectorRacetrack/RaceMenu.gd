@@ -25,7 +25,8 @@ func setup(_trackInfo, _rootNode):
 	$Background/TopZone/TrackPreview/GridOrigin.trackInfo = trackInfo
 	$Background/TopZone/TrackPreview/GridOrigin.mode = "preview"
 	
-	var maxPixelsPerDot = min($Background/TopZone/TrackPreview/GridOrigin.maxWidth / trackInfo.trackWidth, $Background/TopZone/TrackPreview/GridOrigin.maxHeight / trackInfo.trackHeight)
+	var maxPixelsPerDot: float = float(min(float($Background/TopZone/TrackPreview/GridOrigin.maxWidth) / float(trackInfo.trackWidth), float($Background/TopZone/TrackPreview/GridOrigin.maxHeight) / float(trackInfo.trackHeight)))
+	
 	var flipY = Vector2(1,-1)
 	# render existing walls
 	var sortedWalls: Array[MainMenu.TrackInfo.Wall] = trackInfo.walls.duplicate()
@@ -68,7 +69,7 @@ func update_player_list():
 	
 	for player in rootNode.players:
 		var playerEditor = load("res://player_editor.tscn").instantiate()
-		playerEditor.setup(self, player)
+		playerEditor.setup(self, player, rootNode)
 		$Background/BottomZone/ScrollContainer/HBoxContainer.add_child(playerEditor)
 
 func _on_go_button_pressed():
@@ -96,7 +97,7 @@ func _on_player_count_input_value_changed(value):
 		for i in range(amountToAdd):
 			var newName = "P" + str(len(rootNode.players) + i + 1)
 			var newColor = randomColors[randi_range(0, len(randomColors) - 1)]
-			var newPlayer = rootnode.Player.new(newName, newColor)
+			var newPlayer = rootnode.Player.new(newName, newColor, randi_range(0, len(rootNode.carList) - 1))
 			
 			rootNode.players.append(newPlayer)
 	

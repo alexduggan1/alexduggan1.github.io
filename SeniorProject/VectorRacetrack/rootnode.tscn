@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyqtgfa3anc8l"]
+[gd_scene load_steps=5 format=3 uid="uid://cyqtgfa3anc8l"]
 
 [ext_resource type="Script" path="res://rootnode.gd" id="1_f05jf"]
 [ext_resource type="PackedScene" uid="uid://bpgbvboqhsbmf" path="res://main_menu.tscn" id="1_yj2ns"]
+[ext_resource type="Texture2D" uid="uid://ctjarfp00afu3" path="res://cars/car1.png" id="2_p2xbk"]
+[ext_resource type="Texture2D" uid="uid://4uldrlcy88pj" path="res://cars/car2.png" id="3_72ls7"]
 
 [node name="rootnode" type="Node"]
 script = ExtResource("1_f05jf")
+carList = Array[CompressedTexture2D]([ExtResource("2_p2xbk"), ExtResource("3_72ls7")])
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("rootNode") instance=ExtResource("1_yj2ns")]
 rootNode = NodePath("..")

@@ -23,7 +23,8 @@ func setup(_info: MainMenu.TrackInfo, _rootNode: rootnode, new: bool = false):
 	$Background/MiddleZone/GridOrigin.trackInfo = trackInfo
 	$Background/MiddleZone/GridOrigin.mode = "preview"
 	
-	var maxPixelsPerDot = min($Background/MiddleZone/GridOrigin.maxWidth / trackInfo.trackWidth, $Background/MiddleZone/GridOrigin.maxHeight / trackInfo.trackHeight)
+	var maxPixelsPerDot: float = float(min(float($Background/MiddleZone/GridOrigin.maxWidth) / float(trackInfo.trackWidth), float($Background/MiddleZone/GridOrigin.maxHeight) / float(trackInfo.trackHeight)))
+	
 	var flipY = Vector2(1,-1)
 	# render existing walls
 	var sortedWalls: Array[MainMenu.TrackInfo.Wall] = trackInfo.walls.duplicate()

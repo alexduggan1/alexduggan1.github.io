@@ -3,6 +3,7 @@ extends Control
 class_name GridOrigin
 
 var trackInfo
+var rootNode: rootnode
 
 class PaintRequest:
 	var type: int # 0 = line, 1 = polygon
@@ -81,5 +82,18 @@ func _draw():
 			var x = playerToDraw.points[len(playerToDraw.points)-1].x *maxPixelsPerDot
 			var y = playerToDraw.points[len(playerToDraw.points)-1].y *maxPixelsPerDot*-1
 			
-			draw_circle(Vector2(x,y), 8*(maxPixelsPerDot/float(28)), playerToDraw.trailColor)
+			var dir = Vector2(0, 1)
+			if(len(playerToDraw.points) > 1):
+				dir = playerToDraw.points[-1] - playerToDraw.points[-2]
+			
+			var carScale: float = float(40)*(maxPixelsPerDot/float(28))
+			#print_debug(rad_to_deg(dir.angle()))
+			$CarView.show()
+			$CarView.texture = rootNode.carList[playerToDraw.car]
+			$CarView.self_modulate = playerToDraw.trailColor
+			$CarView.size = Vector2(carScale, carScale)
+			var carOffset = Vector2(-carScale / 2, -carScale / 2)
+			$CarView.position = Vector2(x,y) + carOffset
+			$CarView.pivot_offset = Vector2(carScale / 2, carScale / 2)
+			$CarView.rotation_degrees = -rad_to_deg(dir.angle())
 			draw_circle(Vector2(playerMovementHelperPoint.x*maxPixelsPerDot, playerMovementHelperPoint.y*maxPixelsPerDot*-1), 8*(maxPixelsPerDot/float(28)), playerToDraw.trailColor)
