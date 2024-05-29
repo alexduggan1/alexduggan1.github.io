@@ -1,0 +1,209 @@
+[gd_scene load_steps=6 format=3 uid="uid://6agmhgtvlyvs"]
+
+[ext_resource type="Script" path="res://LevelEditor.gd" id="1_6os7j"]
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="2_kdttc"]
+[ext_resource type="Script" path="res://GridOrigin.gd" id="3_nlblx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5emli"]
+font = ExtResource("2_kdttc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3avc"]
+font = ExtResource("2_kdttc")
+font_size = 20
+
+[node name="LevelEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6os7j")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.168627, 0.180392, 1)
+
+[node name="TopPart" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="TrackNameInput" type="TextEdit" parent="TopPart"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 37.0
+offset_right = 150.0
+offset_bottom = 72.0
+grow_horizontal = 2
+pivot_offset = Vector2(450, 0)
+placeholder_text = "TRACK NAME"
+
+[node name="WidthInput" type="SpinBox" parent="TopPart"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 160.0
+offset_top = 37.0
+offset_right = 243.063
+offset_bottom = 68.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TopPart/WidthInput"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Width"
+label_settings = SubResource("LabelSettings_5emli")
+
+[node name="HeightInput" type="SpinBox" parent="TopPart"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 260.0
+offset_top = 37.0
+offset_right = 343.063
+offset_bottom = 68.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TopPart/HeightInput"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Height"
+label_settings = SubResource("LabelSettings_5emli")
+
+[node name="SaveButton" type="Button" parent="TopPart"]
+layout_mode = 1
+offset_left = 85.0
+offset_top = 30.0
+offset_right = 185.0
+offset_bottom = 84.0
+text = "Save Track
+and Close"
+
+[node name="FileDialog" type="FileDialog" parent="TopPart/SaveButton"]
+title = "Save Track"
+initial_position = 4
+size = Vector2i(392, 162)
+access = 1
+filters = PackedStringArray("*.json")
+
+[node name="CloseButton" type="Button" parent="TopPart"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 80.0
+offset_bottom = 84.0
+text = "Close"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="TopPart/CloseButton"]
+title = "Close without saving?"
+initial_position = 4
+ok_button_text = "Yes"
+
+[node name="MainPart" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -600.0
+offset_right = 1000.0
+grow_vertical = 0
+
+[node name="GridOrigin" type="Control" parent="MainPart"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -80.0
+grow_vertical = 0
+script = ExtResource("3_nlblx")
+
+[node name="RightPart" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -600.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AddWallButton" type="Button" parent="RightPart"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -42.0
+offset_bottom = -11.0
+grow_horizontal = 2
+text = "Add Wall"
+
+[node name="WallsTitle" type="Label" parent="RightPart"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "WALLS"
+label_settings = SubResource("LabelSettings_s3avc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallListHolderHolder" type="ScrollContainer" parent="RightPart"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -560.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WallListHolder" type="VBoxContainer" parent="RightPart/WallListHolderHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InvalidTrackDialog" type="ConfirmationDialog" parent="."]
+title = "Could Not Save"
+initial_position = 4
+size = Vector2i(325, 109)
+dialog_text = "Invalid Track:
+Track does not have any starting points."
+
+[connection signal="value_changed" from="TopPart/WidthInput" to="." method="_on_width_input_value_changed"]
+[connection signal="value_changed" from="TopPart/HeightInput" to="." method="_on_height_input_value_changed"]
+[connection signal="pressed" from="TopPart/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="confirmed" from="TopPart/SaveButton/FileDialog" to="." method="_on_file_dialog_confirmed"]
+[connection signal="pressed" from="TopPart/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="confirmed" from="TopPart/CloseButton/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="RightPart/AddWallButton" to="." method="_on_add_wall_button_pressed"]

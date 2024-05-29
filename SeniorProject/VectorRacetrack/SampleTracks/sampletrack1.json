@@ -1,0 +1,22 @@
+{
+	"track_name":"sampletrack1",
+	"track_width":14,
+	"track_height":17,
+	"walls":[
+		{
+			"points":[
+				{"x":0,"y":0},
+				{"x":13,"y":0},
+				{"x":13,"y":16},
+				{"x":0,"y":16}
+			],
+			"raceable":true,
+			"layer":0,
+			"endzone":false
+		}
+	],
+	"starting_points":[
+		{"x":2,"y":3},
+		{"x":3,"y":3}
+	]
+}

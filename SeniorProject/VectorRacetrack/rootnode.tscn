@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqtgfa3anc8l"]
+
+[ext_resource type="Script" path="res://rootnode.gd" id="1_f05jf"]
+[ext_resource type="PackedScene" uid="uid://bpgbvboqhsbmf" path="res://main_menu.tscn" id="1_yj2ns"]
+
+[node name="rootnode" type="Node"]
+script = ExtResource("1_f05jf")
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("rootNode") instance=ExtResource("1_yj2ns")]
+rootNode = NodePath("..")

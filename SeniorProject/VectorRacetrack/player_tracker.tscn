@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://5btvkvtar4h"]
+
+[ext_resource type="Script" path="res://PlayerTracker.gd" id="1_8f8gm"]
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="1_i2nx0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wg4pg"]
+font = ExtResource("1_i2nx0")
+font_size = 20
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerTracker" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8f8gm")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = -10.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerNameLabel" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -14.5
+offset_right = 14.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "P1"
+label_settings = SubResource("LabelSettings_wg4pg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Background" to="." method="_on_background_mouse_entered"]
+[connection signal="mouse_exited" from="Background" to="." method="_on_background_mouse_exited"]

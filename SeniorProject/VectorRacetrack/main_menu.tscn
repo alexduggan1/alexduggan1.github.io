@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpgbvboqhsbmf"]
+
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="1_6xxib"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_uu3uv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0wva"]
+font = ExtResource("1_6xxib")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_tho3u"]
+font = ExtResource("1_6xxib")
+font_size = 30
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uu3uv")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.152941, 0.180392, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -416.0
+offset_top = 15.0
+offset_right = 416.0
+offset_bottom = 92.0
+grow_horizontal = 2
+text = "VECTOR RACETRACK GAME"
+label_settings = SubResource("LabelSettings_f0wva")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonHolder" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -600.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftSide" type="Control" parent="MenuButtonHolder"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 600.0
+
+[node name="Tracks" type="Label" parent="MenuButtonHolder/LeftSide"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "TRACKS"
+label_settings = SubResource("LabelSettings_tho3u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReloadTracksButton" type="Button" parent="MenuButtonHolder/LeftSide"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_top = 5.0
+offset_right = -70.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "refresh"
+
+[node name="TrackHolderHolder" type="ScrollContainer" parent="MenuButtonHolder/LeftSide"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 560.0
+grow_horizontal = 2
+
+[node name="TrackHolder" type="VBoxContainer" parent="MenuButtonHolder/LeftSide/TrackHolderHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RightSide" type="Control" parent="MenuButtonHolder"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_bottom = 600.0
+grow_horizontal = 0
+
+[node name="CreateButton" type="Button" parent="MenuButtonHolder/RightSide"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_right = -50.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "CREATE TRACK"
+
+[node name="ImportSelectButton" type="Button" parent="MenuButtonHolder/RightSide"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = -50.0
+offset_bottom = 71.0
+grow_horizontal = 2
+text = "SELECT TRACK TO IMPORT"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="MenuButtonHolder/RightSide/ImportSelectButton"]
+initial_position = 4
+
+[node name="Timer" type="Timer" parent="MenuButtonHolder/RightSide/ImportSelectButton"]
+one_shot = true
+
+[connection signal="pressed" from="MenuButtonHolder/LeftSide/ReloadTracksButton" to="." method="_on_reload_tracks_button_pressed"]
+[connection signal="pressed" from="MenuButtonHolder/RightSide/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="MenuButtonHolder/RightSide/ImportSelectButton" to="." method="_on_import_button_pressed"]
+[connection signal="confirmed" from="MenuButtonHolder/RightSide/ImportSelectButton/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="timeout" from="MenuButtonHolder/RightSide/ImportSelectButton/Timer" to="." method="_on_timer_timeout"]

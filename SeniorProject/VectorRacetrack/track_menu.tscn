@@ -1,0 +1,166 @@
+[gd_scene load_steps=5 format=3 uid="uid://v6a4gs21e7rq"]
+
+[ext_resource type="Script" path="res://TrackMenu.gd" id="1_q21jm"]
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="2_ov6c6"]
+[ext_resource type="Script" path="res://GridOrigin.gd" id="3_hh2it"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qp2e"]
+font = ExtResource("2_ov6c6")
+font_size = 24
+
+[node name="TrackMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q21jm")
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="TopZone" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "TRACK: "
+label_settings = SubResource("LabelSettings_6qp2e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WidthHeightLabel" type="Label" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 84.0
+grow_horizontal = 2
+text = "WIDTH:         HEIGHT:"
+label_settings = SubResource("LabelSettings_6qp2e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallsLabel" type="Label" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 134.0
+grow_horizontal = 2
+text = "WALLS: "
+label_settings = SubResource("LabelSettings_6qp2e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Background/TopZone"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+text = "X"
+
+[node name="BottomZone" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RaceButton" type="Button" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RACE"
+
+[node name="EditButton" type="Button" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "EDIT"
+
+[node name="ExportButton" type="Button" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -40.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "EXPORT"
+
+[node name="MiddleZone" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -140.0
+offset_right = 400.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0509804, 1)
+
+[node name="GridOrigin" type="Control" parent="Background/MiddleZone"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = -20.0
+offset_right = 180.0
+offset_bottom = -20.0
+grow_vertical = 0
+script = ExtResource("3_hh2it")
+
+[connection signal="pressed" from="Background/TopZone/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Background/BottomZone/RaceButton" to="." method="_on_race_button_pressed"]
+[connection signal="pressed" from="Background/BottomZone/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="Background/BottomZone/ExportButton" to="." method="_on_export_button_pressed"]

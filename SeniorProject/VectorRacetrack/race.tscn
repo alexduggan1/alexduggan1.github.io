@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqtjevevchfvv"]
+
+[ext_resource type="Script" path="res://Race.gd" id="1_npc8o"]
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="2_p1rdv"]
+[ext_resource type="Script" path="res://GridOrigin.gd" id="2_rjt8k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0l752"]
+font = ExtResource("2_p1rdv")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0w8d"]
+font = ExtResource("2_p1rdv")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_wysu8"]
+font = ExtResource("2_p1rdv")
+
+[node name="Race" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_npc8o")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="TopZone" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="TrackNameLabel" type="Label" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_right = 143.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "SAMPLE TRACK 1"
+label_settings = SubResource("LabelSettings_0l752")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainPart" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -620.0
+offset_right = 1000.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="GridOrigin" type="Control" parent="Background/MainPart"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = -40.0
+grow_vertical = 0
+script = ExtResource("2_rjt8k")
+
+[node name="RightPart" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CurrentTurnLabel" type="Label" parent="Background/RightPart"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "Current Turn #: "
+label_settings = SubResource("LabelSettings_k0w8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentPlayerTurnLabel" type="Label" parent="Background/RightPart"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "Current Player: "
+label_settings = SubResource("LabelSettings_wysu8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UndoLastButton" type="Button" parent="Background/RightPart"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Undo Last"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/RightPart"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 70.0
+offset_bottom = 570.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/RightPart/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Background/RightPart/UndoLastButton" to="." method="_on_undo_last_button_pressed"]

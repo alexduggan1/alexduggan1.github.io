@@ -1,0 +1,155 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3c3o621u34om"]
+
+[ext_resource type="Script" path="res://RaceMenu.gd" id="1_8qi4e"]
+[ext_resource type="SystemFont" uid="uid://c40iea64is5gt" path="res://verdana.tres" id="2_emsgb"]
+[ext_resource type="Script" path="res://GridOrigin.gd" id="3_ux7n3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8olta"]
+font = ExtResource("2_emsgb")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_w31t7"]
+font = ExtResource("2_emsgb")
+font_size = 30
+
+[node name="RaceMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qi4e")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.109804, 0.12549, 1)
+
+[node name="TopZone" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 360.0
+grow_horizontal = 2
+
+[node name="TrackNameLabel" type="Label" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_right = 143.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "SAMPLE TRACK 1"
+label_settings = SubResource("LabelSettings_8olta")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrackPreview" type="ColorRect" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0509804, 1)
+
+[node name="GridOrigin" type="Control" parent="Background/TopZone/TrackPreview"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = -20.0
+offset_right = 180.0
+offset_bottom = -20.0
+grow_vertical = 0
+script = ExtResource("3_ux7n3")
+
+[node name="GoButton" type="Button" parent="Background/TopZone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = -46.5
+offset_right = 253.0
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+text = "GO"
+
+[node name="BottomZone" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayersLabel" type="Label" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_right = 97.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "PLAYERS:"
+label_settings = SubResource("LabelSettings_w31t7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerCountInput" type="SpinBox" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 110.0
+offset_top = 5.0
+offset_right = 193.063
+offset_bottom = 36.0
+grow_horizontal = 2
+min_value = 2.0
+max_value = 20.0
+value = 2.0
+rounded = true
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/BottomZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/BottomZone/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Background/TopZone/GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="value_changed" from="Background/BottomZone/PlayerCountInput" to="." method="_on_player_count_input_value_changed"]
