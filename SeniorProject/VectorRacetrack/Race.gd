@@ -344,6 +344,7 @@ func _on_undo_last_button_pressed():
 	if(racing):
 		if(len(currentTurnPlayer.points) > 0):
 			currentTurnPlayer.points.remove_at(len(currentTurnPlayer.points)-1)
+			currentTurnPlayer.momentum = currentTurnPlayer.points[-1] - currentTurnPlayer.points[-2]
 		end_player_turn()
 	else:
 		# becomes exit button

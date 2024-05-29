@@ -81,6 +81,14 @@ func _process(delta):
 					if(Geometry2D.segment_intersects_segment((placingPoints[len(placingPoints)-1]), (roundedMousePos), (placingPoints[i]), (placingPoints[i + 1])) != null):
 						if(! placingPoints.has(Geometry2D.segment_intersects_segment((placingPoints[len(placingPoints)-1]), (roundedMousePos), (placingPoints[i]), (placingPoints[i + 1])))):
 							no_intersect = false
+				var last_line_dir = placingPoints[len(placingPoints)-1] - placingPoints[len(placingPoints)-2]
+				last_line_dir = last_line_dir.normalized()
+				var new_line_dir_reversed = placingPoints[len(placingPoints)-1] - roundedMousePos
+				new_line_dir_reversed = new_line_dir_reversed.normalized()
+				if(last_line_dir == new_line_dir_reversed):
+					print_debug("went back on yourself")
+					no_intersect = false
+				
 				if(no_intersect):
 					placingPoints.append(roundedMousePos)
 					if(placingPoints[len(placingPoints)-1].is_equal_approx(placingPoints[0])):
