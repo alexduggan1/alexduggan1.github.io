@@ -23,59 +23,24 @@ Press the `export` button on the bottom right to download the track to your comp
 
 ## Race Menu
 
-In the race menu, you can see your 
+In the race menu, you can edit the list of players to participate in the race. You can add up to 20 players in a race. Each player can customize their name, color (of trail and car), and type of car.
+
+Once all of the players are set up, press the `GO` button to start the race.
+
 
 # Racing
 
-Once on the racetrack
+Racing in this game is turn-based. On the right side, you can see the current round (turn), whose turn it is, and the list of players in the race.
+
+During each player's turn, they can left click with the mouse to choose a location to move to. There are nine options for where to move, and they are depend on your current momentum from your previous move. The options are centered at your current position + your momentum vector.
+
+You can cross over unraceable terrain during your move, but you can't end up there.
 
 
 # Level Editor
 
 
 # File Saving
-
-## Rendering Solids of Revolution
-
-### Methods
-
-This program supports three methods for volumes of revolution: Disc, Washer, and Shell.
-
-
-### Axis of Revolution
-
-Choose to rotate around the x axis or the y axis. **Note:** only solids of revolution that revolve about the y axis can be exported.
-
-
-### Volume
-
-The volume box will show the current estimate of the volume of revolution, based on the volumes of the rendered cylinders.
-The more cylinders (higher resolution) used to render the solid of revolution, the better the estimation of the volume of revolution is.
-
-
-### Color
-
-The color of the rendered solid of revolution can be freely changed. **Note:** that this has no effect on exporting or the color of any 3D prints.
-
-
-### Title
-
-The title bar is the name of the solid of revolution.
-If it is not left empty, the solid of revolution is added to the history queue on the right.
-
-
-### View Controls
-
-Use `wasd` to rotate the camera around the generated solid.
-
-Use `c` to pull the camera further away and `f` to push it closer.
-
-Use the arrow keys to move the camera up, down, left, or right. This also moves the point the camera rotates around, so I don't necessarily recommend it.
-
-Press `r` to reset the camera to its default settings.
-
-The program tries its best to show the entire solid in frame when you press generate, but it doesn't always succeed.
-
 
 ## Exporting and Printing
 

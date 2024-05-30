@@ -312,9 +312,17 @@ func _on_undo_last_button_pressed():
 	if(racing):
 		if(len(currentTurnPlayer.points) > 0):
 			currentTurnPlayer.points.remove_at(len(currentTurnPlayer.points)-1)
-			currentTurnPlayer.momentum = currentTurnPlayer.points[-1] - currentTurnPlayer.points[-2]
+			if(len(currentTurnPlayer.points) > 1):
+				currentTurnPlayer.momentum = currentTurnPlayer.points[-1] - currentTurnPlayer.points[-2]
+			else:
+				currentTurnPlayer.momentum = Vector2.ZERO
 		end_player_turn()
 	else:
 		# becomes exit button
 		raceMenu.queue_free()
 		self.queue_free()
+
+
+func _on_quit_button_pressed():
+	raceMenu.queue_free()
+	self.queue_free()
