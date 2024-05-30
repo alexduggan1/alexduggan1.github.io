@@ -2,9 +2,9 @@
 
 [Back](https://alexduggan1.github.io/Guides)
 
-## How to Export Godot to HTML5
+# How to Export Godot to HTML5
 
-### I. Export the Project
+## I. Export the Project
 
 1. Go to the Godot Project you want to export.
 2. Make a `build/web` folder in the project.
@@ -19,7 +19,7 @@
 8. Press Export Project.
 
 
-### II. Host the Project
+## II. Host the Project
 
 9. Copy the folder containing the `project.godot` (your project folder) and paste it into the repository that's hosting it.
 10. Go to the repository, you will be working from there from here on out.
