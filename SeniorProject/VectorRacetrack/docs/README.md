@@ -110,8 +110,8 @@ The structure is as following:
                 ], // list of points on the wall
                 "raceable":<bool>, // whether or not the wall can be raced on
                 "layer":<int>, // the layer of the wall
-                "endzone":<bool>
-            }, // each wall contains a list of points, whether it is raceable or not, its layer, and whether it is an endzone or not
+                "endzone":<bool> // whether or not the wall is an ending zone
+            }, // each wall contains a list of points, whether it is raceable or not, its layer, and whether it is an ending zone or not
             {
                 "points":[
                     {
