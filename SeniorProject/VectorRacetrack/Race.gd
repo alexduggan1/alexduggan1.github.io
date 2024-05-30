@@ -145,7 +145,7 @@ func _process(delta):
 		
 		
 		$Background/MainPart/GridOrigin.playerToDraw = currentTurnPlayer
-		$Background/MainPart/GridOrigin.playerMovementHelperPoint = currentTurnPlayer.points[-1]
+		$Background/MainPart/GridOrigin.playerMovementHelperPoint = Vector2(-4000, -4000)
 		
 		$Background/MainPart/GridOrigin.queue_redraw()
 

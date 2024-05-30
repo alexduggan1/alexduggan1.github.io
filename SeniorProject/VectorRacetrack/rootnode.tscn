@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyqtgfa3anc8l"]
+[gd_scene load_steps=8 format=3 uid="uid://cyqtgfa3anc8l"]
 
 [ext_resource type="Script" path="res://rootnode.gd" id="1_f05jf"]
 [ext_resource type="PackedScene" uid="uid://bpgbvboqhsbmf" path="res://main_menu.tscn" id="1_yj2ns"]
 [ext_resource type="Texture2D" uid="uid://ctjarfp00afu3" path="res://cars/car1.png" id="2_p2xbk"]
 [ext_resource type="Texture2D" uid="uid://4uldrlcy88pj" path="res://cars/car2.png" id="3_72ls7"]
+[ext_resource type="Texture2D" uid="uid://cn4xk4cywj4j3" path="res://cars/car3.png" id="4_01o6k"]
+[ext_resource type="Texture2D" uid="uid://csrh1wm13yhlu" path="res://cars/car4.png" id="5_mia6i"]
+[ext_resource type="Texture2D" uid="uid://tdymca23pnk5" path="res://cars/car5.png" id="6_bx31n"]
 
 [node name="rootnode" type="Node"]
 script = ExtResource("1_f05jf")
-carList = Array[CompressedTexture2D]([ExtResource("2_p2xbk"), ExtResource("3_72ls7")])
+carList = Array[CompressedTexture2D]([ExtResource("2_p2xbk"), ExtResource("3_72ls7"), ExtResource("4_01o6k"), ExtResource("5_mia6i"), ExtResource("6_bx31n")])
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("rootNode") instance=ExtResource("1_yj2ns")]
 rootNode = NodePath("..")
