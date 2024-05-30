@@ -7,7 +7,7 @@
 
 ## Main Menu
 
-On the left side is the list of tracks that you can race on. Select one of these to preview the track. On the right side there are buttons to create a new track or import a file from your computer.
+On the left side is the list of tracks that you can race on. Click on one of these to preview the track. On the right side, there are buttons to create a new track or import a file from your computer.
 
 
 ## Track Preview
@@ -16,9 +16,9 @@ Press the `edit` button to open the level editor and edit the track.
 
 Press the `race` button to open the race menu for the track.
 
-Press the `remove` button on the bottom left to remove the track from the list of tracks that you can race on.
+Press the `remove` button on the bottom left to remove the track from the user directory.
 
-Press the `export` button on the bottom right to download the track to your computer.
+Press the `export` button on the bottom right to download the track from the user directory to your computer.
 
 
 ## Race Menu
@@ -30,87 +30,123 @@ Once all of the players are set up, press the `GO` button to start the race.
 
 # Racing
 
-Racing in this game is turn-based. On the right side, you can see the current round (turn), whose turn it is, and the list of players in the race.
+Racing in this game is turn-based. On the right side, you can see the current round (turn), whose turn it is, and the list of player trackers in the race.
 
-During each player's turn, they can left click with the mouse to choose a location to move to. There are nine options for where to move, and they are depend on your current momentum from your previous move. The options are centered at your current position + your momentum vector.
+During each player's turn, they can left click with the mouse to choose a location to move to. There are nine options for where to move, and they are depend on your current momentum from your previous move. The options are centered at your current position + your momentum vector. Alternatively, you can undo your last move. Once a location is chosen or a move undone, your turn ends.
 
-You can cross over unraceable terrain during your move, but you can't end up there.
+You can cross over unraceable terrain during your move, but 
+you can't end up there.
+
+**Note:** If none of your location options are on raceable terrain, you should press the `undo move` button.
+
+If you end your turn in a blue zone, you finish the race. The amount of turns that it took each player to finish the race are listed on their player tracker.
 
 
 # Level Editor
 
+When editing a track, you can edit the name, width, height, walls, and starting positions.
 
-# File Saving
+## Name, Width, Height
 
-## Exporting and Printing
+To edit the name, select the text box with the name of the track.
 
-You can only export solids that revolve about the y axis.
+To edit the width or height, edit the boxes labeled `width` and `height`. 
 
+**Note:** If you resize the track while adding a wall, the wall placement will be cancelled.
 
-### History
-
-The history queue shows all of the solids of revolution that have been generated during the current session, provided they were given a title when they were generated.
-
-Double clicking on an item of the history queue will load the associated solid of revolution.
-
-You can clear the history queue using the clear button at the bottom right of the queue.
+**Note:** You will be prevented from decreasing the width or height if it would mean a wall point or starting point is outside of the bounds of the track.
 
 
-### Export STL
+## Wall Placement
 
-Clicking the Export STL button will create a `.stl` file of the currently selected solid in the history queue. The name of the file will be the title of the solid.
+To start adding a wall, press the `add wall` button, then `left click` on the grid where you want to start the wall.
 
-This button works best for exporting solids generated with the disc method, and it usually works with solids generated with the washer method, too.
-It is *not* recommended to use this button to export solids generated with the shell method, especially if they have any amount of concavity.
+While adding the wall, `left click` to add a point. You are not allowed to cross over other segments of the wall when placing the point. To complete placing the wall, click again on the first point of the wall.
 
+**Note:** To cancel placing a wall in the middle, press `escape`.
 
-**Printing files exported with the Export STL button**
+On the right side, there will be a list of walls. Here, you can choose whether the zone within the wall is raceable, whether it is an ending zone, and the layer of the wall. Walls with a higher layer are prioritized when deciding whether a point is able to be raced on. You can also delete the wall.
 
-Begin by sending the `.stl` file onto the computer with the 3D printing software.
-
-Once the `.stl` file is on the computer with the 3D printing software, import it into the 3D printing software.
-
-If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the `.stl` file before printing it.
-
-Since the `.stl` files are generated sideways, you will need to rotate them properly before printing. They are also generated with millimeter units, so resizing may be necessary.
-
-If slicing your `.stl` file fills in a hole that it shouldn't, use the Export Advanced button and follow those instructions instead. This is most likely due to your solid having concavity.
-
-Press slice and begin the print.
+If there is a wall segment, and at least one direction immediately around it is not able to be raced on, then that wall segment is not allowed to be raced on. If a racer lands on a point with a wall segment, and it is completely surrounded by raceable track, then it is a valid point for the racer to move to.
 
 
-### Export Advanced
+## Starting Points
 
-Clicking the Export Advanced button will create a `.zip` archive of the currently selected solid in the history queue. The name of the archive will be the title of the solid. Within the archive, there will be a `.stl` file for each of the individual cylinders used to generate the solid.
-
-This button is designed to export solids generated with the shell method, especially if they have any amount of concavity. It is most likely not necessary to use the button to export solids generated with the shell or washer method, but it would probably work.
+Starting points are marked with a red dot on the grid. To add or remove a starting point, `right click` where you want to add or remove the starting point.
 
 
-**Printing files exported with the Export Advanced button**
+## Save File
 
-Begin by sending the `.zip` archive to the computer with the 3D printing software.
+To save the track file, press the `save track and close` button. If you don't want to save the track file, press the `close` button.
 
-Once the `.zip` archive is on the computer with the 3D printing software, extract the contents using 7zip. For some reason, the regular file explorer refuses to interact with these archives properly.
+By default, the name of the saved file will be the name of the track.
 
-Open blender. Click `file > import > STL (.stl)`. Select all of the files that were extracted from the .zip archive and press Import STL.
+Track files are saved in the user directory, which is stored in your browser.
 
-The files will be imported sideways. To fix this, press `r`, then `x`, and rotate all of the files at once until they are oriented correctly. If the files get deselected, you can reselected all of them by pressing `a`. **Note:** blender must be in Object Mode for this to work. If you aren't in Object Mode, try pressing tab (it swaps between Object Mode and Edit Mode).
-
-Press `n` to open the menu on the side of main viewer, and click on the panel labeled 3D-Print. Open the export section.
-
-Select the destination location for your new `.stl` file, make sure the format is STL, then click Export. You can now close blender.
+The user directory is searched in for the list of tracks in the main menu. You can export a saved track from there.
 
 
-Import your new `.stl` file into the 3D printing software.
+# Track Files
 
-If there is a warning symbol next to the name of the print (this will almost certainly occur while using PrusaSlicer/Slic3r), right click it to repair the `.stl` file before printing it.
+Each track is saved in its own `.json` file.
 
-Since the `.stl` files are generated with millimeter units, resizing may be necessary.
+The structure is as following:
 
-Press slice and begin the print.
-
+    {
+        "track_name":<string>, // name of the track
+        "track_width":<int>, // width of the track
+        "track_height":<int>, // height of the track
+        "walls":[
+            {
+                "points":[
+                    {
+                        "x":<int>, // x coordinate of the point
+                        "y":<int> // y coordinate of the point
+                    }, // each point contains an x and y coordinate pair
+                    {
+                        "x":<int>,
+                        "y":<int>
+                    } // a wall can have many points
+                ], // list of points on the wall
+                "raceable":<bool>, // whether or not the wall can be raced on
+                "layer":<int>, // the layer of the wall
+                "endzone":<bool>
+            }, // each wall contains a list of points, whether it is raceable or not, its layer, and whether it is an endzone or not
+            {
+                "points":[
+                    {
+                        "x":<int>,
+                        "y":<int>
+                    },
+                    {
+                        "x":<int>,
+                        "y":<int>
+                    },
+                    {
+                        "x":<int>,
+                        "y":<int>
+                    }
+                ],
+                "raceable":<bool>,
+                "layer":<int>,
+                "endzone":<bool>
+            } // there can be many walls
+        ], // list of walls in the track
+        "starting_points":[
+            {
+                "x":<int>, // x coordinate of the starting point
+                "y":<int> // y coordinate of the starting point
+            }, // each starting point contains an x and a y coordinate pair
+            {
+                "x":<int>,
+                "y":<int>
+            } // there can be many starting points
+        ] // list of starting points in the track
+    }
 
 
 # Known Limitations
 
-This project can't be run on macOS, due to incompatibility between Godot 4 and macOS
+This project can't be run on macOS on web, due to incompatibility between Godot 4 and macOS on web.
+
+It has been tested and works on Windows (Firefox) and Chromebook (Google Chrome).
