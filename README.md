@@ -14,8 +14,10 @@
 
 [Cannon Tower (2019)](https://alexduggan1.github.io/CannonTower)
 
-[Learning Godot (2023)](https://alexduggan1.github.io/LearningGodot/build/web)
+[Learning Godot (Laser Hockey) (2023)](https://alexduggan1.github.io/LearningGodot/build/web)
 
 [Senior Project (2024)](https://alexduggan1.github.io/SeniorProject/)
+
+[Misc Mash (2024)](https://alexduggan1.github.io/MiscMash/)
 
 [Guides (2024)](https://alexduggan1.github.io/Guides/)
