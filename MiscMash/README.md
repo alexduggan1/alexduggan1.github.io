@@ -6,13 +6,6 @@
 
 ## Portfolio
 
-### Screenshots
-![Screenshot1](/MiscMash/screenshots/gameplay1.png)
-![Screenshot2](/MiscMash/screenshots/gameplay2.png)
-![Screenshot3](/MiscMash/screenshots/gameplay3.png)
-![Screenshot4](/MiscMash/screenshots/gameplay4.png)
-![Screenshot5](/MiscMash/screenshots/gameplay5.png)
-
 ### Role
 For this project, I was the programmer and musician (and various other roles)
 
@@ -58,5 +51,12 @@ For this project, I contributed:
 
 * Keeping my team organized as well as I could
 
-### Lessons learned
+### Lessons Learned
 Trying to make up for lackluster effort/contributions for too many teammates for too long is actually detrimental to my physical health.
+
+### Screenshots
+![Screenshot1](/MiscMash/screenshots/gameplay1.png)
+![Screenshot2](/MiscMash/screenshots/gameplay2.png)
+![Screenshot3](/MiscMash/screenshots/gameplay3.png)
+![Screenshot4](/MiscMash/screenshots/gameplay4.png)
+![Screenshot5](/MiscMash/screenshots/gameplay5.png)
