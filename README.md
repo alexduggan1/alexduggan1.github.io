@@ -26,4 +26,4 @@ Some of my projects!
 
 [Guides (2024)](https://alexduggan1.github.io/Guides/)
 
-[Fundamentals Of Music Technology Final Project (2025)](https://alexduggan1.github.io/FundamentalsOfMusicTechnologyFinal)
+[Foundations Of Music Technology Final Project (2025)](https://alexduggan1.github.io/FoundationsOfMusicTechnologyFinal)
